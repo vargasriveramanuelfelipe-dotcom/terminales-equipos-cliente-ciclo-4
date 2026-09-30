@@ -5,14 +5,10 @@ y hora en que se registró, y muestra la lista.
 
 ## Instalación
 
-1. Instalar Python.
-2. Instalar las librerías necesarias.
-3. Preparar la base de datos.
-4. Arrancar la aplicación:
-
-```
-python app.py
-```
+1. introducir "bash instalar.sh"
+2. escribir "export REGISTRO_CLAVE=tu_clave"
+3. introducir "bash iniciar.sh"
+4. Se va a inicializar la base de datos
 
 Después abrir el navegador en http://127.0.0.1:5000
 
