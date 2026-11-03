@@ -1,15 +1,15 @@
 # Bitácora del reto — Servidor de pruebas (27-oct-2026)
  
 **Nombre:*Manuel Felipe Vargas*
-**Fecha y hora en que empecé:*3 de noviembre de 2026*
+**Fecha y hora en que empecé:**
 **Fecha y hora del push de provisionar.sh:**
  
 ## A. Mientras escribía el guion (Parte 1)
  
 | # | Qué pasó (error, sorpresa, algo que tuve que hacer a mano) | Qué hice |
 |---|---|---|
-| 1 | | |
-| 2 | | |
+| 1 |No such file or directory: '/opt/registro/requirements.txt' |cambie el nombre del archivo y el orden de los comandos que exigia "requiriments.txt antes de haberlo copiado" |
+| 2 | cat: /opt/registro/registro.env: Permission denied| |
 | 3 | | |
  
 ## B. La prueba en el Codespace nuevo (Parte 2)
