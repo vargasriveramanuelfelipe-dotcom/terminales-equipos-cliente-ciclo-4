@@ -24,3 +24,38 @@
       ansible.builtin.lineinfile:
         path: "{{ lookup('env', 'HOME') }}/.bashrc"
         line: 'echo "*** SERVIDOR DE PRUEBAS - Registro de Visitas ***"'
+
+    - name: Esta instalado sqlite3
+      become: true
+      ansible.builtin.apt:
+        name: sqlite3
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Existe el archivo de la aplicación
+      become: true
+      ansible.builtin.copy:
+        src: app.py
+        dest: /opt/registro/app.py
+        owner: registro
+        group: registro
+        mode: '0644'
+
+    - name: Existe el archivo de entorno
+      become: true
+      ansible.builtin.copy:
+        content: | 
+          # Archivo de entorno para la aplicación Registro de Visitas
+          # Se puede modificar para cambiar la configuración de la aplicación
+          # Variables de entorno:
+          #   - DB_PATH: Ruta del archivo de base de datos SQLite
+          #   - PORT: Puerto en el que se ejecuta la aplicación
+          DB_PATH=/opt/registro/registro.db
+          PORT=5000
+        dest: /opt/registro/registro.env
+        owner: registro
+        group: registro
+        mode: '0644'
+
+      
