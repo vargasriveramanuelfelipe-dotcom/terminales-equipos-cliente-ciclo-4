@@ -10,7 +10,8 @@
 |---|---|---|
 | 1 |No such file or directory: '/opt/registro/requirements.txt' |cambie el nombre del archivo y el orden de los comandos que exigia "requiriments.txt antes de haberlo copiado" |
 | 2 | cat: /opt/registro/registro.env: Permission denied| |
-| 3 | | |
+| 3 |   File "<string>", line 3, in <module>
+    for fila in sqlite3.connect('file:/opt/registro/registro.db?mode=ro', uri=True).execute('SELECT id, nombre, momento FROM visitas'):  ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^sqlite3.OperationalError: unable to open database file| |
  
 ## B. La prueba en el Codespace nuevo (Parte 2)
  
@@ -18,12 +19,12 @@
 |---|---|---|
 | ¿El guion terminó? (sí / se detuvo en la línea 3 con el error  for fila in sqlite3.connect('file:/opt/registro/registro.db?mode=ro', uri=True).execute('SELECT id, nombre, momento FROM visitas'):) | |se detuvo en la línea 3 con el error  for fila in sqlite3.connect('file:/opt/registro/registro.db?mode=ro', uri=True).execute('SELECT id, nombre, momento FROM visitas' |
 | 1. sqlite3 instalado |si | si |
-| 2. Usuario registro | si| si|
-| 3. Carpeta con los archivos |si | si|
-| 4. ¿Cuántas visitas de verificación? |4 | 4|
+| 2. Usuario registro | no| si|
+| 3. Carpeta con los archivos |no | si|
+| 4. ¿Cuántas visitas de verificación? |0 | |
 | 5. ¿Cuántas líneas tiene registro.env? |0 |0 |
 | 6. Dueño de /opt/registro |registro? | registro?|
-| 7. ¿Cuántas veces sale el aviso al abrir una terminal nueva? |7 | 7|
+| 7. ¿Cuántas veces sale el aviso al abrir una terminal nueva? |0 | 0|
  
 **¿El servidor quedó en el estado del encargo después de la 2.ª corrida?** (sí / no — ¿en qué no?) no, se estanco denegando el permiso a /opt/registro/registro.env
  
@@ -32,11 +33,11 @@
 **¿Cuál de los tres resultados tuvo mi guion (se cayó / se acumuló / se calló), y en qué línea?** se cayo en la linea 3 
  
 **Mini-ejercicio** (idempotente o no, y por qué):
-1.
-2.
-3.
-4.
-5.
-6.
+1.No es idempotente, falla despues de ejecutarse mas de una vez.
+2.Si es idempotente, se ejecuta correctamente todas las veces.
+3.Si es idempotente, el resultado acaba siendo el mismo
+4.Si es idempotente, el resultado no cambia despues de ejecutarse varias veces.
+5.No es idempotente, cuando se usa mas de una vez falla al estar ya registrado 
+6.Si es idempotente, el comando siempre funciona sin importar cuanto se ejecute
  
 **Una línea de mi provisionar.sh escrita como paso, y cómo se diría como estado:**
